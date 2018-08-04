@@ -1,1 +1,80 @@
-<!DOCTYPE html><html><head><meta charset=utf-8><title>后台管理系统beta2.1</title><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"><link rel=stylesheet href=static/css/reset.css><link href=/vue2-management-platform/static/css/app.2cf48013cb5261084093b6937a692862.css rel=stylesheet></head><body><div id=app><router-view></router-view></div><script type=text/javascript src=/vue2-management-platform/static/js/manifest.2de6abf637b13590cf20.js></script><script type=text/javascript src=/vue2-management-platform/static/js/vendor.d36c12ac1a1d11c019ac.js></script><script type=text/javascript src=/vue2-management-platform/static/js/app.9bfafaa1875fcd4c3923.js></script></body></html>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+
+    <title>博创教育</title>
+
+
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html"/>
+    <![endif]-->
+    <link rel="shortcut icon" href="favicon.ico">
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet">
+    <link th:href="@{/css/animate.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <!-- 全局js -->
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
+    <script th:src="@{/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
+    <script th:src="@{/js/plugins/layer/layer.min.js}"></script>
+    <!-- 自定义js -->
+    <script th:src="@{/js/hplus.js}"></script>
+    <script type="text/javascript" th:src="@{/js/contabs.js}"></script>
+
+    <!-- 第三方插件 -->
+    <script th:src="@{/js/plugins/pace/pace.min.js}"></script>
+</head>
+
+<body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden">
+<div id="wrapper">
+    <!--左侧导航开始-->
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="nav-close"><i class="fa fa-times-circle"></i>
+        </div>
+        <div class="sidebar-collapse">
+            <ul class="nav" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element">
+                        <span><img alt="image" class="img-circle" th:src="@{/img/profile_small.jpg}"/></span>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="clear">
+                                <span class="block m-t-xs"><strong class="font-bold">admin</strong></span>
+                                <span class="text-muted text-xs block">超级管理员<b class="caret"></b></span>
+                                </span>
+                        </a>
+                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                            <li><a class="J_menuItem" href="form_avatar.html">修改密码</a>
+                            </li>
+                            <li><a class="J_menuItem" href="profile.html">个人资料</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="../../login.jsp">安全退出</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="logo-element">
+                        <img alt="image" th:src="@{/img/logomini.png}"/>
+                    </div>
+                </li>
+                <li>
+                    <a href="#"><span class="nav-label">图书管理</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a class="J_menuItem" href="">图书</a>
+                        </li>
+                    </ul>
+
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+</div>
+</body>
+
+</html>

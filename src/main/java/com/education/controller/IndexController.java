@@ -20,6 +20,6 @@ public class IndexController {
 
     @RequestMapping(value = "/gotoIndex")
     public String gotoIndex(){
-        return "index";
+        return "/index";
     }
 }
