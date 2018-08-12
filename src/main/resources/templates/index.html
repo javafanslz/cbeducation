@@ -1,33 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="renderer" content="webkit">
+<head th:replace="/pageHeader::resources('博创教育','','')">
 
-    <title>博创教育</title>
-
-
-    <!--[if lt IE 9]>
-    <meta http-equiv="refresh" content="0;ie.html"/>
-    <![endif]-->
-    <link rel="shortcut icon" th:href="favicon.ico">
-    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
-    <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet">
-    <link th:href="@{/css/animate.css}" rel="stylesheet">
-    <link th:href="@{/css/style.css}" rel="stylesheet">
-    <!-- 全局js -->
-    <script th:src="@{/js/jquery.min.js}"></script>
-    <script th:src="@{/js/bootstrap.min.js}"></script>
-    <script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
-    <script th:src="@{/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
-    <script th:src="@{/js/plugins/layer/layer.min.js}"></script>
-    <!-- 自定义js -->
-    <script th:src="@{/js/hplus.js}"></script>
-    <script type="text/javascript" th:src="@{/js/contabs.js}"></script>
-
-    <!-- 第三方插件 -->
-    <script th:src="@{/js/plugins/pace/pace.min.js}"></script>
 </head>
 
 <body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden">
@@ -67,7 +41,7 @@
                     <ul class="nav nav-second-level">
                         <li>
                             <a class="J_menuItem" href="">添加老师</a>
-                            <a class="J_menuItem" href="">查询老师</a>
+                            <a class="J_menuItem"  th:href="@{/teacher/gotoView}">查询老师</a>
                         </li>
                     </ul>
 

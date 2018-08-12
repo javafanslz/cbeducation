@@ -11,3 +11,8 @@ spring:
     prefix: classpath:/templates
     cache: false
     encoding: UTF-8
+  datasource:
+    url: jdbc:mysql://localhost:3306/education
+    data-username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
