@@ -17,4 +17,5 @@ public class TeacherController {
     public String gotoView(ModelMap modelMap){
         return "/teacher/queryTeacher";
     }
+
 }

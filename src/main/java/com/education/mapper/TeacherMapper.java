@@ -2,16 +2,18 @@ package com.education.mapper;
 
 import com.education.po.TeacherPo;
 import com.education.vo.TeacherVO;
+import org.apache.commons.lang.StringUtils;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.SelectProvider;
 import org.apache.ibatis.type.JdbcType;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
-
+@Repository
 public interface TeacherMapper {
 
     @SelectProvider(type = TeacherSelectProvider.class,method = "queryTeacher")
@@ -27,6 +29,9 @@ public interface TeacherMapper {
     })
     List<TeacherPo> queryTeachers(@Param("queryVo") TeacherVO queryVO);
 
+    @SelectProvider(type = TeacherSelectProvider.class,method = "queryCount")
+    int getTotal(@Param("queryVo") TeacherVO queryVO);
+
 
     class TeacherSelectProvider{
 
@@ -40,6 +45,9 @@ public interface TeacherMapper {
             if(queryVo == null){
                 logger.debug("查询的sql语句为["+sql.toString()+"]");
                 return sql.toString();
+            }
+            if(StringUtils.isNotBlank(queryVo.getStartTime())&&StringUtils.isNotBlank(queryVo.getEndTime())){
+               // sql.append("")
             }
             return "";
         }
