@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="addTeacher">
+<form id="form_validate" class="form-horizontal notprint">
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="height: 600px;">
+            <div class="modal-content" style="height: 450px;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">添加老师</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label for="tName" class="col-sm-2 control-label">姓名</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="tName" name="tName">
+                        </div>
+                        <label for="age" class="col-sm-2 control-label">年龄</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="age" name="age">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="major" class="col-sm-2 control-label">科目</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" id="major"
+                                    name="major">
+                                <option value="1" selected>语文</option>
+                                <option value="2">数学</option>
+                                <option value="3">英语</option>
+                                <option value="4">物理</option>
+                                <option value="5">化学</option>
+                                <option value="6">生物</option>
+                            </select>
+                        </div>
+                        <label for="sex" class="col-sm-2 control-label">性别</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" id="sex"
+                                    name="sex">
+                                <option value="1" selected>男</option>
+                                <option value="2">女</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="telNum" class="col-sm-2 control-label">电话</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="telNum" name="telNum">
+                        </div>
+                        <label for="school" class="col-sm-2 control-label">学校</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="school" name="school">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="start_time" class="col-sm-2 control-label">开始时间</label>
+                        <div class="col-sm-4">
+                            <input type="text" id="start_time" name="up_fRecordDate" height="30px" class="Wdate" readonly="readonly"
+                                   onfocus="WdatePicker({dateFmt:'HH:mm:ss',maxDate:'#F{$dp.$D(\'end_time\')}',lang:'en'})" />
+                        </div>
+                        <label for="end_time" class="col-sm-2 control-label">结束时间</label>
+                        <div class="col-sm-4">
+                            <input type="text" id="end_time" name="up_fRecordDate" height="30px" class="Wdate" readonly="readonly"
+                                   onfocus="WdatePicker({dateFmt:'HH:mm:ss',min:'#F{$dp.$D(\'start_time\')}',lang:'en'})" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="address" class="col-sm-2 control-label">住址</label>
+                        <div class="col-sm-6">
+                        <textarea name="address" id="address" rows="3" style="resize: none;">
+
+                        </textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" id="addButton" onclick="addTeacher()">保存</button>
+                    <button id="add_close_btn" type="button" class="btn btn-primary" data-dismiss="modal"
+                            onclick="clearInput()">关闭
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

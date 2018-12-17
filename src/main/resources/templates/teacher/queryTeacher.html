@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="/pageHeader::resources('老师列表','','/js/teacher/teacher.js')">
+<head th:replace="/pageHeader::resources('老师列表','','/js/teacher/teacher.js,/js/teacher/addTeacher.js,')">
 </head>
 
 <body class="gray-bg">
@@ -60,5 +60,6 @@
 <script type="text/javascript">
     var contextPath = "${pageContext.request.contextPath}";
 </script>
+<div th:include="/teacher/addTeacher::addTeacher"></div>
 </body>
 </html>

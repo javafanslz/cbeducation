@@ -12,8 +12,8 @@ var TableInit = function () {
     // 初始化Table
     oTableInit.Init = function () {
         $('#teacherTable').bootstrapTable({
-            url: '',   // 请求后台的URL（*）
-            method: 'get',      // 请求方式（*）
+            url: 'queryData',   // 请求后台的URL（*）
+            method: 'post',      // 请求方式（*）
             toolbar: '#toolbar',    // 工具按钮用哪个容器
             striped: true,      // 是否显示行间隔色
             cache: false,      // 是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -39,30 +39,58 @@ var TableInit = function () {
             columns: [{
                 radio: true
             }, {
-                field: 'fId',
+                field: 'teacherId',
                 title: '编号',
                 visible: false
             },  {
-                field: 'fName',
+                field: 'teacherName',
                 title: '教师名称'
             }, {
-                field: 'fNumber',
-                title: '性别'
+                field: 'sex',
+                title: '性别',
+                formatter:function(value, row, index){
+                    if(value == '1'){
+                        return "男";
+                    }
+                    if(value == '2'){
+                        return "女"
+                    }
+                }
             }, {
-                field: 'fAmount',
+                field: 'address',
                 title: '住址'
             }, {
-                field: 'fRestAmount',
+                field: 'telNum',
                 title: '联系方式'
             }, {
-                field: 'fStaffName',
-                title: '入职日期'
+                field: 'createDate',
+                title: '创建日期'
             },{
-                field: 'fStatusName',
-                title: '状态'
+                field: 'major',
+                title: '课程类型',
+                formatter:function(value, row, index){
+                    if(value == '1'){
+                        return "语文";
+                    }
+                    if(value == '2'){
+                        return "数学"
+                    }
+                    if(value == '3'){
+                        return "英语"
+                    }
+                    if(value == '4'){
+                        return "物理"
+                    }
+                    if(value == '5'){
+                        return "化学"
+                    }
+                    if(value == '6'){
+                        return "生物"
+                    }
+                }
             },{
-                field: 'fLink',
-                title: '课程类型'
+                field: 'workTime',
+                title: '上课时间'
             }]
         });
     };
@@ -78,3 +106,36 @@ var TableInit = function () {
     };
     return oTableInit;
 };
+
+
+function addTeacher(){
+    alert('11');
+    $("#addModal").modal('hide');
+    $.ajax({
+        url : 'add',
+        type : "post",
+        data : {
+            teacherName : $("#tName").val(),
+            sex : $("#sex").val(),
+            address : $("#address").val(),
+            major : $("#major").val(),
+            telNum : $("#telNum").val(),
+            startTime : $("#start_time").val(),
+            endTime : $("#end_time").val(),
+            age : $("#age").val(),
+            school : $("#school").val()
+        },
+        success : function(data) {
+            if (data.msg == "success") {
+                setAlert(data.message, "添加成功");
+            } else if (data.msg == "error") {
+                setAlert(data.message, "添加失败");
+            }
+            $('#tb_fundAccount').bootstrapTable('refresh', {
+                url : 'queryIgnoreStatus.do'
+            });
+            ///重置表单
+            $('#form_validate').bootstrapValidator('resetForm', true);
+        }
+    });
+}
